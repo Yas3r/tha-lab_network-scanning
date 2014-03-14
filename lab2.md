@@ -20,7 +20,7 @@ tcpdump -i eth0 -nntttt dst host 10.16.0.8
 nmap -sn -n 10.16.0.8
 ```
 4. Once the scan has finished return to the terminal console window that is currently running tcpdump. Press `Ctrl-c` to terminate tcpdump.
-5. Examine this simple packet capture, as you will see 4 individual packets being sent from your THA Kali/Backtrack host to the IP address 10.16.0.8.
+5. Examine this simple packet capture, as you will see 4 individual packets being sent from your THA Kali/Backtrack host to the IP address `10.16.0.8`.
 6. The first packet is an ICMP echo request and should be very similar to this example:
 ```
 IP 172.16.189.5 > 10.16.0.8: ICMP echo request, id 1091, seq 0, length 8
