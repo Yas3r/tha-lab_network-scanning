@@ -15,41 +15,41 @@ nmap -sn -n 10.16.0.0/24
 ```
 tcpdump -i eth0 -nntttt dst host 10.16.0.8
 ```
-Return to your original terminal console window and execute the following nmap host discovery scan:
+3. Return to your original terminal console window and execute the following nmap host discovery scan:
 ```
 nmap -sn -n 10.16.0.8
 ```
-3. Once the scan has finished return to the terminal console window that is currently running tcpdump. Press `Ctrl-c` to terminate tcpdump.
-4. Examine this simple packet capture, as you will see 4 individual packets being sent from your THA Kali/Backtrack host to the IP address 10.16.0.8.
-5. The first packet is an ICMP echo request and should be very similar to this example:
+4. Once the scan has finished return to the terminal console window that is currently running tcpdump. Press `Ctrl-c` to terminate tcpdump.
+5. Examine this simple packet capture, as you will see 4 individual packets being sent from your THA Kali/Backtrack host to the IP address 10.16.0.8.
+6. The first packet is an ICMP echo request and should be very similar to this example:
 ```
 IP 172.16.189.5 > 10.16.0.8: ICMP echo request, id 1091, seq 0, length 8
 ```
-6. The second packet is a TCP SYN packet sent to port 443 of our target IP and should be very similar to this example:
+7. The second packet is a TCP SYN packet sent to port 443 of our target IP and should be very similar to this example:
 ```
 IP 172.16.189.5.43756 > 10.16.0.8.443: Flags [S], seq 2146750298, win 2048, options [mss 1460], length 0
 ```
-7. The third packet is a TCP ACK packet to port 80 of our target IP and should be very similar to this example:
+8. The third packet is a TCP ACK packet to port 80 of our target IP and should be very similar to this example:
 ```
 IP 172.16.189.5.43756 > 10.16.0.8.80: Flags [.], ack 2146750298, win 2048, length 0
 ```
-8. The fourth and final packet is a ICMP timestamp request to our target IP and should be very similar to this example:
+9. The fourth and final packet is a ICMP timestamp request to our target IP and should be very similar to this example:
 ```
 IP 172.16.189.5 > 10.16.0.8: ICMP time stamp query id 55606 seq 0, length 20
 ```
-9. As you can see, nmap did in fact send 4 individual probe requests to our target. The main reason nmap does this is to provide us with a very quick and efficient host discovery method that doesn’t rely on a single technique or protocol to work. In many environments ICMP echo requests and replies are filtered, so nmap also sends a ICMP timestamp request along with two TCP probes to common ports open on many servers. It isn’t uncommon for administrators to block ICMP echo requests and replies but forget to filter ICMP timestamp requests, making this technique deployed by nmap very effective.
-10. Although nmap does not perform a simple ICMP ping sweep by default we can definitely configure nmap to do so. To do this we simply need to specify with arguments exactly the type of scan we want nmap to perform. Nmap can be configured to send 3 different types of ICMP packets using the following arguments:
+10. As you can see, nmap did in fact send 4 individual probe requests to our target. The main reason nmap does this is to provide us with a very quick and efficient host discovery method that doesn’t rely on a single technique or protocol to work. In many environments ICMP echo requests and replies are filtered, so nmap also sends a ICMP timestamp request along with two TCP probes to common ports open on many servers. It isn’t uncommon for administrators to block ICMP echo requests and replies but forget to filter ICMP timestamp requests, making this technique deployed by nmap very effective.
+11. Although nmap does not perform a simple ICMP ping sweep by default we can definitely configure nmap to do so. To do this we simply need to specify with arguments exactly the type of scan we want nmap to perform. Nmap can be configured to send 3 different types of ICMP packets using the following arguments:
 ```
 -PE = ICMP type 8 (echo request)
 -PP = ICMP code 14 (timestamp reply)
 -PM = ICMP code 18 (address mask reply)
 ```
-10. To have nmap perform just an ICMP ping sweep execute the following command:
+12. To have nmap perform just an ICMP ping sweep execute the following command:
 ```
 nmap -sn -n -PE 10.16.0.0/24
 ```
 It should be easy to note how much faster nmap returns results when compared to the fping application in the previous exercises.  Feel free to run a tcpdump capture to verify that nmap is only sending ICMP echo requests for this exercise.
-11. Now that we have covered the basic host discovery methods used by nmap compare the actual results of the following scan types against the 10.16.0.0/24 network range and record the total hosts identified as up here:
+13. Now that we have covered the basic host discovery methods used by nmap compare the actual results of the following scan types against the 10.16.0.0/24 network range and record the total hosts identified as up here:
 ```
 Default host discovery
 ICMP echo request
@@ -57,16 +57,16 @@ ICMP Timestamp reply
 ICMP address reply
 ```
 Where there any differences in the total number of hosts identified as being up, and if so why do you believe this is the case?
-12. One extremely useful feature of fping is being able to construct a target list based on a simple output without having to do any complex parsing. Remember this command from the previous lab:
+14. One extremely useful feature of fping is being able to construct a target list based on a simple output without having to do any complex parsing. Remember this command from the previous lab:
 ```
 fping -an -g 10.16.0.0/24
 ```
-13. To replicate this in nmap we can use some simple command line-fu! Execute the following command using nmap to get the same exact display/output format:
+15. To replicate this in nmap we can use some simple command line-fu! Execute the following command using nmap to get the same exact display/output format:
 ```
 nmap -sn -n -PE 10.16.0.0/24 | grep report | awk ‘{print$5}’
 ```
-14. Although we have to pipe the output from nmap into two separate applications to get this same output it should still be about 10 times faster than using fping. One thing that will highly benefit you as a penetration tester is to become very comfortable with simple and common bash parsing and formatting tools like grep, awk, sed, uniq, and sort, just to name a few.
-15. Nmap also has some built in scan timing options that can drastically change the amount of time it takes to scan a network. By default nmap uses the `-T3` option. To demonstrate how much these options change nmaps overall scanning speed execute the following commands and record reported scanned speed along with the real, user, and sys times resulting from prepending the time application to our nmap scans:
+16. Although we have to pipe the output from nmap into two separate applications to get this same output it should still be about 10 times faster than using fping. One thing that will highly benefit you as a penetration tester is to become very comfortable with simple and common bash parsing and formatting tools like grep, awk, sed, uniq, and sort, just to name a few.
+17. Nmap also has some built in scan timing options that can drastically change the amount of time it takes to scan a network. By default nmap uses the `-T3` option. To demonstrate how much these options change nmaps overall scanning speed execute the following commands and record reported scanned speed along with the real, user, and sys times resulting from prepending the time application to our nmap scans:
 ```bash
 time nmap -sn -n -PE -T2 10.16.0.0/24
 Scanned time (nmap):
