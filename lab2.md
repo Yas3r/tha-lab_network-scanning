@@ -79,7 +79,7 @@ time nmap -sn -n -PE -T3 10.16.0.0/24
 Scanned time (nmap):
 real	0m7.796s
 user	0m0.000s
-sys   0m0.116s
+sys     0m0.116s
 ```
 ```bash
 time nmap -sn -n -PE -T4 10.16.0.0/24
