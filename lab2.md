@@ -66,8 +66,8 @@ fping -an -g 10.16.0.0/24
 ```
 nmap -sn -n -PE 10.16.0.0/24 | grep report | awk ‘{print$5}’
 ```
-Although we have to pipe the output from nmap into two separate applications to get this same output it should still be about 10 times faster than using fping. One thing that will highly benefit you as a penetration tester is to become very comfortable with simple and common bash parsing and formatting tools like grep, awk, sed, uniq, and sort, just to name a few.
-14. Nmap also has some built in scan timing options that can drastically change the amount of time it takes to scan a network. By default nmap uses the `-T3` option. To demonstrate how much these options change nmaps overall scanning speed execute the following commands and record reported scanned speed along with the real, user, and sys times resulting from prepending the time application to our nmap scans:
+14. Although we have to pipe the output from nmap into two separate applications to get this same output it should still be about 10 times faster than using fping. One thing that will highly benefit you as a penetration tester is to become very comfortable with simple and common bash parsing and formatting tools like grep, awk, sed, uniq, and sort, just to name a few.
+15. Nmap also has some built in scan timing options that can drastically change the amount of time it takes to scan a network. By default nmap uses the `-T3` option. To demonstrate how much these options change nmaps overall scanning speed execute the following commands and record reported scanned speed along with the real, user, and sys times resulting from prepending the time application to our nmap scans:
 ```bash
 time nmap -sn -n -PE -T2 10.16.0.0/24
 Scanned time (nmap):
