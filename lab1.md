@@ -36,7 +36,7 @@ Notice how the ICMP statistics are reported on a per host basis.
 fping -as -i 100 -g 10.16.0.0/24
 ```
 Notice this scan takes significantly longer to complete. Setting the milliseconds to a larger value can be extremely useful in avoiding intrusion prevention and intrusion detection systems. It can also aid in bypassing firewall limit rules.
-8. fping also allows us to specify the timeout per target for our ICMP request packets, which can be extremely useful in speeding up our total scan time when we know the network is reliable. By default fping uses a 500-millisecond timeout. To modify this behavior we use the “-t” argument. Execute the following command to demonstrate this by setting a timeout of only 10 milliseconds:
+8. fping also allows us to specify the timeout per target for our ICMP request packets, which can be extremely useful in speeding up our total scan time when we know the network is reliable. By default fping uses a 500-millisecond timeout. To modify this behavior we use the `-t` argument. Execute the following command to demonstrate this by setting a timeout of only 10 milliseconds:
 ```
 fping -as -t 10 -g 10.16.0.0/24
 ```
