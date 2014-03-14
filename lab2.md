@@ -72,7 +72,7 @@ time nmap -sn -n -PE -T2 10.16.0.0/24
 Scanned time (nmap):
 real	3m31.660s
 user	0m0.008s
-sys   0m0.264s
+sys     0m0.264s
 ```
 ```bash
 time nmap -sn -n -PE -T3 10.16.0.0/24
@@ -86,14 +86,14 @@ time nmap -sn -n -PE -T4 10.16.0.0/24
 Scanned time (nmap):
 real	0m7.663s
 user	0m0.000s
-sys   0m0.128s
+sys     0m0.128s
 ```
 ```bash
 time nmap -sn -n -PE -T5 10.16.0.0/24
 Scanned time (nmap):
 real	0m1.972s
 user	0m0.004s
-sys   0m0.124s
+sys     0m0.124s
 ```
 As you can see the built in timing options can have a huge impact on how quickly nmap can carry out a scan.
 
