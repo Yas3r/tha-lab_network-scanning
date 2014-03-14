@@ -49,7 +49,7 @@ IP 172.16.189.5 > 10.16.0.8: ICMP time stamp query id 55606 seq 0, length 20
 nmap -sn -n -PE 10.16.0.0/24
 ```
 It should be easy to note how much faster nmap returns results when compared to the fping application in the previous exercises.  Feel free to run a tcpdump capture to verify that nmap is only sending ICMP echo requests for this exercise.
-13. Now that we have covered the basic host discovery methods used by nmap compare the actual results of the following scan types against the 10.16.0.0/24 network range and record the total hosts identified as up here:
+13. Now that we have covered the basic host discovery methods used by nmap compare the actual results of the following scan types against the `10.16.0.0/24` network range and record the total hosts identified as up here:
 ```
 Default host discovery
 ICMP echo request
@@ -65,7 +65,7 @@ fping -an -g 10.16.0.0/24
 ```
 nmap -sn -n -PE 10.16.0.0/24 | grep report | awk ‘{print$5}’
 ```
-16. Although we have to pipe the output from nmap into two separate applications to get this same output it should still be about 10 times faster than using fping. One thing that will highly benefit you as a penetration tester is to become very comfortable with simple and common bash parsing and formatting tools like grep, awk, sed, uniq, and sort, just to name a few.
+16. Although we have to pipe the output from nmap into two separate applications to get this same output it should still be about 10 times faster than using fping. One thing that will highly benefit you as a penetration tester is to become very comfortable with simple and common bash parsing and formatting tools like `grep`, `awk`, `sed`, `uniq`, and `sort`, just to name a few.
 17. Nmap also has some built in scan timing options that can drastically change the amount of time it takes to scan a network. By default nmap uses the `-T3` option. To demonstrate how much these options change nmaps overall scanning speed execute the following commands and record reported scanned speed along with the real, user, and sys times resulting from prepending the time application to our nmap scans:
 ```bash
 time nmap -sn -n -PE -T2 10.16.0.0/24
