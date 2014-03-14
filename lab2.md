@@ -38,8 +38,7 @@ IP 172.16.189.5.43756 > 10.16.0.8.80: Flags [.], ack 2146750298, win 2048, lengt
 IP 172.16.189.5 > 10.16.0.8: ICMP time stamp query id 55606 seq 0, length 20
 ```
 9. As you can see, nmap did in fact send 4 individual probe requests to our target. The main reason nmap does this is to provide us with a very quick and efficient host discovery method that doesn’t rely on a single technique or protocol to work. In many environments ICMP echo requests and replies are filtered, so nmap also sends a ICMP timestamp request along with two TCP probes to common ports open on many servers. It isn’t uncommon for administrators to block ICMP echo requests and replies but forget to filter ICMP timestamp requests, making this technique deployed by nmap very effective.
-
-Although nmap does not perform a simple ICMP ping sweep by default we can definitely configure nmap to do so. To do this we simply need to specify with arguments exactly the type of scan we want nmap to perform. Nmap can be configured to send 3 different types of ICMP packets using the following arguments:
+10. Although nmap does not perform a simple ICMP ping sweep by default we can definitely configure nmap to do so. To do this we simply need to specify with arguments exactly the type of scan we want nmap to perform. Nmap can be configured to send 3 different types of ICMP packets using the following arguments:
 ```
 -PE = ICMP type 8 (echo request)
 -PP = ICMP code 14 (timestamp reply)
