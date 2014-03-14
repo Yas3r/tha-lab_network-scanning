@@ -3,7 +3,7 @@
 
 In the default mode, if a target replies, it is noted and removed from the list of targets to check; if a target does not respond within a certain time limit and/or retry limit it is designated as unreachable. fping also supports sending a specified number of pings to a target, or looping indefinitely (as in ping).
 
-1. pinging an entire network range with fping is easy and fairly quick. To scan the network address space `10.16.0.0/24` with fping we execute the following command:
+1. Pinging an entire network range with fping is easy and fairly quick. To scan the network address space `10.16.0.0/24` with fping we execute the following command:
 ```
 fping -g 10.16.0.0/24
 ```
