@@ -11,11 +11,14 @@ If no host discovery options are given, Nmap sends an ICMP echo request, a TCP S
 nmap -sn -n 10.16.0.0/24
 ```
 **Note**: that this same scan in fping to considerably longer to execute, as nmap is extremely efficient with a magnitude of effort put into optimizing it’s scanning engines algorithms.
-2. During the namp host discovery scan nmap performed 4 individual probes per host, as opposed to just sending an ICMP echo request to each host. To verify this we are going to use a network sniffer called tcpdump to capture out scan traffic to a single host by executing the following commands:
-Open a second terminal window and execute the following command:
+2. During the namp host discovery scan nmap performed 4 individual probes per host, as opposed to just sending an ICMP echo request to each host. To verify this we are going to use a network sniffer called tcpdump to capture out scan traffic to a single host by executing the following commands. Open a second terminal window and execute the following command:
+```
 tcpdump -i eth0 -nntttt dst host 10.16.0.8
+```
 Return to your original terminal console window and execute the following nmap host discovery scan:
+```
 nmap -sn -n 10.16.0.8
+```
 Once the scan has finished return to the terminal console window that is currently running tcpdump. Press “Ctrl-c” to terminate tcpdump.
 Examine this simple packet capture, as you will see 4 individual packets being sent from your THA BT host to the IP address 10.16.0.8.
 The first packet is an ICMP echo request and should be very similar to this example:
