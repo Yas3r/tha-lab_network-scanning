@@ -31,7 +31,7 @@ fping -as -c 10 10.16.0.8
 fping -as -c 5 -g 10.16.0.0/28
 ```
 Notice how the ICMP statistics are reported on a per host basis.
-7. fping allows us to specify the intervals in which we send ICMP request packets in milliseconds. By default fping sends these requests at an interval of 25 milliseconds. We use the “-i" argument to specify how many milliseconds between each ICMP request packet sent. Execute the following command to demonstrate an interval of 100 milliseconds between ICMP request packets being sent by fping:
+7. fping allows us to specify the intervals in which we send ICMP request packets in milliseconds. By default fping sends these requests at an interval of 25 milliseconds. We use the `-i` argument to specify how many milliseconds between each ICMP request packet sent. Execute the following command to demonstrate an interval of 100 milliseconds between ICMP request packets being sent by fping:
 ```
 fping -as -i 100 -g 10.16.0.0/24
 ```
@@ -41,7 +41,7 @@ Notice this scan takes significantly longer to complete. Setting the millisecond
 fping -as -t 10 -g 10.16.0.0/24
 ```
 Notice how much faster the scan finished as we did not have to wait the default 500 milliseconds for all ICMP request packets to expire.
-9. Another option we can use on a reliable network to speed up our scans is to lower the number of retries attempted by fping when carrying out a ping sweep. By default fping will attempt to ping a host 3 times. We can modify be this default setting using the “-r” argument. Execute the following command to demonstrate this behavior:
+9. Another option we can use on a reliable network to speed up our scans is to lower the number of retries attempted by fping when carrying out a ping sweep. By default fping will attempt to ping a host 3 times. We can modify be this default setting using the `-r` argument. Execute the following command to demonstrate this behavior:
 ```
 fping -as -r 1 -g 10.16.0.0/24
 ```
