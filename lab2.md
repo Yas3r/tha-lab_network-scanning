@@ -70,9 +70,9 @@ nmap -sn -n -PE 10.16.0.0/24 | grep report | awk ‘{print$5}’
 ```bash
 time nmap -sn -n -PE -T2 10.16.0.0/24
 Scanned time (nmap):
-real: 
-user:
-sys:
+real	3m31.660s
+user	0m0.008s
+sys   0m0.264s
 ```
 ```bash
 time nmap -sn -n -PE -T3 10.16.0.0/24
