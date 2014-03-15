@@ -13,7 +13,7 @@ fping -g 10.16.0.0/24
 fping -ag 10.16.0.0/24
 ```
 **Note**: these results could easily be used to create a target file for more in-depth port scanners such as nmap or a vulnerability scanner like Nessus. This is useful, as many times it is faster to perform just a ping sweep before turning a full port scan loose on a network. In our experience this can really pay off in timesavings for internal network penetration tests on large networks where the ICMP protocol is allowed internally. Note this strategy doesn’t normally work for external penetration tests, as many organizations block the ICMP protocol at their border or demark points.
-3. fping can also output some useful statistics regarding the ping sweep using the “-s” argument. Execute the following command and pay attention to the closing statistics.
+3. fping can also output some useful statistics regarding the ping sweep using the `-s` argument. Execute the following command and pay attention to the closing statistics.
 ```
 fping -asg 10.16.0.0/24
 ```
