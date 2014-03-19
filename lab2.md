@@ -50,7 +50,7 @@ nmap -sn -n -PE 10.16.0.0/24
 ```
 It should be easy to note how much faster nmap returns results when compared to the fping application in the previous exercises.  Feel free to run a tcpdump capture to verify that nmap is only sending ICMP echo requests for this exercise.
 13. Now that we have covered the basic host discovery methods used by nmap compare the actual results of the following scan types against the `10.16.0.0/24` network range and record the total hosts identified as up here:
-```
+```bash
 Default host discovery
 ICMP echo request
 ICMP Timestamp reply
