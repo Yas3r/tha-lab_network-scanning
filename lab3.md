@@ -1,4 +1,5 @@
 #### BONUS EXERCISE
+
 1. Use the unicornscan application to scan the same network range `10.16.0.0/24` to compare its accuracy with nmaps and fpings. Note that unicornscan cannot just perform a ping sweep, so this needs to be factored into the results and your expectations. An example command for using unicornscan is as follows:
 
   ```
@@ -17,7 +18,7 @@
   man unicornscan
   ```
 
-You may be surprised to see that unicornscan can render full port scan data as fast as the fping application can render simple ICMP ping sweeps.
+    You may be surprised to see that unicornscan can render full port scan data as fast as the fping application can render simple ICMP ping sweeps.
 
 4. This concludes this block of instruction, please restore your Kali VM settings by following the instructions at:
 

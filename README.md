@@ -13,7 +13,8 @@ This lab requires the following THA virtual machines
 * Network Emulator
 
 #### Lab Credentials
-Kali VM: root / toor
+
+* Kali VM: `root / toor`
 
 #### Setup
 The targets for the exercise are located on the Network Emulator VM.

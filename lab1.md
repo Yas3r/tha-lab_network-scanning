@@ -9,7 +9,7 @@ In the default mode, if a target replies, it is noted and removed from the list 
   fping -g 10.16.0.0/24
   ```
 
-**Note**: the results of this ping scan and how the output shows both live hosts and unreachable hosts.
+    **Note**: the results of this ping scan and how the output shows both live hosts and unreachable hosts.
 
 2. To show only live hosts in the output we can add the `-a` argument and execute the following command:
 
@@ -17,7 +17,7 @@ In the default mode, if a target replies, it is noted and removed from the list 
   fping -ag 10.16.0.0/24
   ```
 
-**Note**: these results could easily be used to create a target file for more in-depth port scanners such as nmap or a vulnerability scanner like Nessus. This is useful, as many times it is faster to perform just a ping sweep before turning a full port scan loose on a network. In our experience this can really pay off in timesavings for internal network penetration tests on large networks where the ICMP protocol is allowed internally. Note this strategy doesn’t normally work for external penetration tests, as many organizations block the ICMP protocol at their border or demark points.
+    **Note**: these results could easily be used to create a target file for more in-depth port scanners such as nmap or a vulnerability scanner like Nessus. This is useful, as many times it is faster to perform just a ping sweep before turning a full port scan loose on a network. In our experience this can really pay off in timesavings for internal network penetration tests on large networks where the ICMP protocol is allowed internally. Note this strategy doesn’t normally work for external penetration tests, as many organizations block the ICMP protocol at their border or demark points.
 
 3. fping can also output some useful statistics regarding the ping sweep using the `-s` argument. Execute the following command and pay attention to the closing statistics.
 
@@ -37,7 +37,7 @@ In the default mode, if a target replies, it is noted and removed from the list 
   fping -as -c 10 10.16.0.8
   ```
 
-**Note**: the statistics are reported on the top line of the results returned to the console.
+    **Note**: the statistics are reported on the top line of the results returned to the console.
 
 6. We can also gather these statistics for an entire network range. Execute the following command:
 
@@ -45,7 +45,7 @@ In the default mode, if a target replies, it is noted and removed from the list 
   fping -as -c 5 -g 10.16.0.0/28
   ```
 
-Notice how the ICMP statistics are reported on a per host basis.
+    Notice how the ICMP statistics are reported on a per host basis.
 
 7. fping allows us to specify the intervals in which we send ICMP request packets in milliseconds. By default fping sends these requests at an interval of 25 milliseconds. We use the `-i` argument to specify how many milliseconds between each ICMP request packet sent. Execute the following command to demonstrate an interval of 100 milliseconds between ICMP request packets being sent by fping:
 
@@ -53,7 +53,7 @@ Notice how the ICMP statistics are reported on a per host basis.
   fping -as -i 100 -g 10.16.0.0/24
   ```
 
-Notice this scan takes significantly longer to complete. Setting the milliseconds to a larger value can be extremely useful in avoiding intrusion prevention and intrusion detection systems. It can also aid in bypassing firewall limit rules.
+    Notice this scan takes significantly longer to complete. Setting the milliseconds to a larger value can be extremely useful in avoiding intrusion prevention and intrusion detection systems. It can also aid in bypassing firewall limit rules.
 
 8. fping also allows us to specify the timeout per target for our ICMP request packets, which can be extremely useful in speeding up our total scan time when we know the network is reliable. By default fping uses a 500-millisecond timeout. To modify this behavior we use the `-t` argument. Execute the following command to demonstrate this by setting a timeout of only 10 milliseconds:
 
@@ -61,7 +61,7 @@ Notice this scan takes significantly longer to complete. Setting the millisecond
   fping -as -t 10 -g 10.16.0.0/24
   ```
 
-Notice how much faster the scan finished as we did not have to wait the default 500 milliseconds for all ICMP request packets to expire.
+    Notice how much faster the scan finished as we did not have to wait the default 500 milliseconds for all ICMP request packets to expire.
 
 9. Another option we can use on a reliable network to speed up our scans is to lower the number of retries attempted by fping when carrying out a ping sweep. By default fping will attempt to ping a host 3 times. We can modify be this default setting using the `-r` argument. Execute the following command to demonstrate this behavior:
 
@@ -69,7 +69,7 @@ Notice how much faster the scan finished as we did not have to wait the default 
   fping -as -r 1 -g 10.16.0.0/24
   ```
 
-**Note**: how much faster the scan finishes when we don’t have to wait for 3 ICMP requests to timeout per target host that is unreachable.
+    **Note**: how much faster the scan finishes when we don’t have to wait for 3 ICMP requests to timeout per target host that is unreachable.
 
 10. You have completed this lab. You can continue to lab 2 by following the instructions found at 
     ```

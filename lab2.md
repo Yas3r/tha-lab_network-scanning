@@ -12,7 +12,7 @@ If no host discovery options are given, Nmap sends an ICMP echo request, a TCP S
   nmap -sn -n 10.16.0.0/24
   ```
 
-**Note**: that this same scan in fping to considerably longer to execute, as nmap is extremely efficient with a magnitude of effort put into optimizing it’s scanning engines algorithms.
+    **Note**: that this same scan in fping to considerably longer to execute, as nmap is extremely efficient with a magnitude of effort put into optimizing it’s scanning engines algorithms.
 2. During the namp host discovery scan nmap performed 4 individual probes per host, as opposed to just sending an ICMP echo request to each host. To verify this we are going to use a network sniffer called tcpdump to capture out scan traffic to a single host by executing the following commands. Open a second terminal window and execute the following command:
 
   ```
@@ -26,7 +26,9 @@ If no host discovery options are given, Nmap sends an ICMP echo request, a TCP S
   ```
 
 4. Once the scan has finished return to the terminal console window that is currently running tcpdump. Press `Ctrl-c` to terminate tcpdump.
+
 5. Examine this simple packet capture, as you will see 4 individual packets being sent from your THA Kali host to the IP address `10.16.0.8`.
+
 6. The first packet is an ICMP echo request and should be very similar to this example:
 
   ```
@@ -66,7 +68,8 @@ If no host discovery options are given, Nmap sends an ICMP echo request, a TCP S
   nmap -sn -n -PE 10.16.0.0/24
   ```
 
-It should be easy to note how much faster nmap returns results when compared to the fping application in the previous exercises.  Feel free to run a tcpdump capture to verify that nmap is only sending ICMP echo requests for this exercise.
+    It should be easy to note how much faster nmap returns results when compared to the fping application in the previous exercises.  Feel free to run a tcpdump capture to verify that nmap is only sending ICMP echo requests for this exercise.
+
 13. Now that we have covered the basic host discovery methods used by nmap compare the actual results of the following scan types against the `10.16.0.0/24` network range and record the total hosts identified as up here:
 
   ```bash
@@ -76,7 +79,8 @@ It should be easy to note how much faster nmap returns results when compared to 
   ICMP address reply
   ```
 
-Where there any differences in the total number of hosts identified as being up, and if so why do you believe this is the case?
+    Where there any differences in the total number of hosts identified as being up, and if so why do you believe this is the case?
+
 14. One extremely useful feature of fping is being able to construct a target list based on a simple output without having to do any complex parsing. Remember this command from the previous lab:
 
   ```
@@ -90,6 +94,7 @@ Where there any differences in the total number of hosts identified as being up,
   ```
 
 16. Although we have to pipe the output from nmap into two separate applications to get this same output it should still be about 10 times faster than using fping. One thing that will highly benefit you as a penetration tester is to become very comfortable with simple and common bash parsing and formatting tools like `grep`, `awk`, `sed`, `uniq`, and `sort`, just to name a few.
+
 17. Nmap also has some built in scan timing options that can drastically change the amount of time it takes to scan a network. By default nmap uses the `-T3` option. To demonstrate how much these options change nmaps overall scanning speed execute the following commands and record reported scanned speed along with the real, user, and sys times resulting from prepending the time application to our nmap scans:
 
   ```bash
@@ -124,7 +129,7 @@ Where there any differences in the total number of hosts identified as being up,
   sys     	0m0.124s
   ```
 
-As you can see the built in timing options can have a huge impact on how quickly nmap can carry out a scan.
+    As you can see the built in timing options can have a huge impact on how quickly nmap can carry out a scan.
 
 18. You have completed this lab. You can continue to lab 3 by following the instructions found at 
     ```
