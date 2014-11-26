@@ -56,7 +56,7 @@ If no host discovery options are given, Nmap sends an ICMP echo request, a TCP S
 10. As you can see, nmap did in fact send 4 individual probe requests to our target. The main reason nmap does this is to provide us with a very quick and efficient host discovery method that doesn’t rely on a single technique or protocol to work. In many environments ICMP echo requests and replies are filtered, so nmap also sends a ICMP timestamp request along with two TCP probes to common ports open on many servers. It isn’t uncommon for administrators to block ICMP echo requests and replies but forget to filter ICMP timestamp requests, making this technique deployed by nmap very effective.
 11. Although nmap does not perform a simple ICMP ping sweep by default we can definitely configure nmap to do so. To do this we simply need to specify with arguments exactly the type of scan we want nmap to perform. Nmap can be configured to send 3 different types of ICMP packets using the following arguments:
 
-  ```
+  ```bash
   -PE = ICMP type 8 (echo request)
   -PP = ICMP code 14 (timestamp reply)
   -PM = ICMP code 18 (address mask reply)
